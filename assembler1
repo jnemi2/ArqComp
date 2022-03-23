@@ -1,0 +1,16 @@
+	ldaa #$00
+j	staa $f0,x
+	inca
+	inx
+	cpx #30
+	bne j
+	nop
+	ldaa #$00
+	nop
+	ldab $f0,x
+	nop
+k	staa $f0,x
+	dex
+	inca
+	cpx #0
+	bne k
