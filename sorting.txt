@@ -1,0 +1,55 @@
+	ldaa #$80
+	staa $f0
+	ldaa #$02
+	staa $f1
+	ldaa #$79
+	staa $f2
+	ldaa #$04
+	staa $f3
+	ldaa #$01
+	staa $f4
+	ldaa #$19
+	staa $f5
+	ldaa #$77
+	staa $f6
+	ldaa #$67
+	staa $f7
+	ldaa #$64
+	staa $f8
+	ldaa #$25
+	staa $f9
+
+	ldaa #$0a	;number of elements
+	staa $ef
+
+	ldab $ef	;start of sort
+lop	decb		;loop
+	beq fin		;end condition
+	stab $ef
+	ldx $ee
+	ldaa $f0,x
+	staa $e4
+	stx $e0
+	
+sub	cmpa $f0,x	;sub-loop
+	bmi swa
+	cpx #$00
+	beq lop		;next iteration
+	dex
+	bne sub
+
+swa 	ldaa $f0,x	;swap
+	stx $e2
+	ldx $e0
+	staa $f0,x
+	ldx $e2
+	ldaa $e4
+	staa $f0,x
+	ldx $e0
+	ldaa $f0,x
+	staa $e4
+	ldx $e2
+	bra sub		;return to sub
+
+fin nop
+	.end
