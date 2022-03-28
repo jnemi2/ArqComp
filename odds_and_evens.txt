@@ -1,0 +1,41 @@
+	ldaa #$80
+	staa $f0
+	ldaa #$02
+	staa $f1
+	ldaa #$79
+	staa $f2
+	ldaa #$04
+	staa $f3
+	ldaa #$f7
+	staa $f4
+	ldaa #$19
+	staa $f5
+	ldaa #$77
+	staa $f6
+	ldaa #$67
+	staa $f7
+	ldaa #$64
+	staa $f8
+	ldaa #$25
+	staa $f9
+
+	ldaa #$0a	;number of elements
+	staa $ef
+
+
+	ldx $ee
+	ldab $ef
+lop	cpx #$00
+	beq fin
+	dex
+	ldaa $f0,x
+	anda #$01
+	beq	eve
+	bra lop
+eve decb
+	bra lop
+fin	stab $b0
+	ldaa $ef
+	sba
+	staa $a0
+	.end
