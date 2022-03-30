@@ -1,8 +1,32 @@
 	ldx #$fb00
 lop	wai
 	ldaa $ffff
-	cmpa #$00
-	beq skp
-	staa $00,x
+	beq lop
+	cmpa #$30
+	bpl	key
+	cmpa #$08
+	beq bks
+	cmpa #$25
+	beq lft
+	cmpa #$26
+	beq up
+	cmpa #$27
+	beq rgt
+	cmpa #$28
+	beq dwn
+key	staa $00,x
+	stab $ffff
 	inx
-skp	bra lop
+	bra lop
+bks	dex
+	stab $00,x
+	bra lop
+lft 	dex
+	bra lop
+up	nop
+	bra lop
+rgt	inx
+	bra lop
+dwn 	nop
+	bra lop
+	.end
