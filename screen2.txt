@@ -1,0 +1,8 @@
+	ldx #$fb00
+lop	wai
+	ldaa $ffff
+	cmpa #$00
+	beq skp
+	staa $00,x
+	inx
+skp	bra lop
