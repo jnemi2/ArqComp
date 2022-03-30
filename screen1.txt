@@ -1,0 +1,99 @@
+	ldx #$FC88
+	ldaa #$42
+	staa $00,x
+	inx
+	ldaa #$79
+	staa $00,x
+	inx
+	ldaa #$20
+	staa $00,x
+	inx
+	ldaa #$4A
+	staa $00,x
+	inx
+	ldaa #$75
+	staa $00,x
+	inx
+	ldaa #$61
+	staa $00,x
+	inx
+	ldaa #$6E
+	staa $00,x
+	inx
+	ldaa #$20
+	staa $00,x
+	inx
+	ldaa #$42
+	staa $00,x
+	inx
+	ldaa #$2E
+	staa $00,x
+	inx
+	ldaa #$20
+	staa $00,x
+	inx
+	ldaa #$4E
+	staa $00,x
+	inx
+	ldaa #$65
+	staa $00,x
+	inx
+	ldaa #$6D
+	staa $00,x
+	inx
+	ldaa #$69
+	staa $00,x
+	inx
+sub	ldx #$FD60
+	ldaa #$67
+	staa $00,x
+	inx
+	ldaa #$69
+	staa $00,x
+	inx
+	ldaa #$74
+	staa $00,x
+	inx
+	ldaa #$68
+	staa $00,x
+	inx
+	ldaa #$75
+	staa $00,x
+	inx
+	ldaa #$62
+	staa $00,x
+	inx
+	ldaa #$2E
+	staa $00,x
+	inx
+	ldaa #$63
+	staa $00,x
+	inx
+	ldaa #$6F
+	staa $00,x
+	inx
+	ldaa #$6D
+	staa $00,x
+	inx
+	ldaa #$2F
+	staa $00,x
+	inx
+	ldaa #$6A
+	staa $00,x
+	inx
+	ldaa #$6E
+	staa $00,x
+	inx
+	ldaa #$65
+	staa $00,x
+	inx
+	ldaa #$6D
+	staa $00,x
+	inx
+	ldaa #$69
+	staa $00,x
+	inx
+	ldaa #$32
+	staa $00,x
+	inx
+	.end
