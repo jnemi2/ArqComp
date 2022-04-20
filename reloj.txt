@@ -1,0 +1,86 @@
+load	ldx #$fb00
+		ldab #$30
+		ldaa #$32
+		staa $00,x
+		inx
+		ldaa #$33
+		staa $00,x
+		inx
+		ldaa #$3a
+		staa $00,x
+		inx
+		ldaa #$35
+		staa $00,x
+		inx
+		ldaa #$39
+		staa $00,x
+		inx
+		ldaa #$3a
+		staa $00,x
+		inx
+		ldaa #$30
+		staa $00,x
+		inx
+		staa $00,x
+		inx
+
+ret1	ldaa #$16
+ret2	ldaa #$14
+ret3	ldaa #$12
+lop		deca
+		cmpa #$00
+		bne lop
+
+
+loop	ldx #$fb07
+		ldaa $00,x
+		inca
+		staa $00,x
+		cmpa #$3a
+		bne ret1
+		stab $00,x
+		ldx #$fb06
+		ldaa $00,x
+		inca
+		staa $00,x
+		cmpa #$36
+		bne ret1
+		stab $00,x
+		ldx #$fb04
+		ldaa $00,x
+		inca
+		staa $00,x
+		cmpa #$3a
+		bne ret2
+		stab $00,x
+		ldx #$fb03
+		ldaa $00,x
+		inca
+		staa $00,x
+		cmpa #$36
+		bne ret2
+		stab $00,x
+		ldx #$fb01
+		ldaa $00,x
+		inca
+		staa $00,x
+		cmpa #$3a
+		bne chk
+cont	stab $00,x
+		ldx #$fb00
+		ldaa $00,x
+		inca
+		staa $00,x
+		cmpa #$32
+		bne ret3
+		stab $00,x
+chk		dex
+		ldaa $00,x
+		inx
+		cmpa #$32
+		bne	cont
+res		stab $00,x
+		dex
+		stab $00,x
+		jmp loop
+		.end
