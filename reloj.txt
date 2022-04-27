@@ -1,28 +1,75 @@
+max .byte #$00 ;maximo digito valido para seteo
+
+
 load	ldx #$fb00
 		ldab #$30
-		ldaa #$32
+		ldaa #$58
 		staa $00,x
 		inx
+		staa $00,x
+		inx
+		ldaa #$3a
+		staa $00,x
+		inx
+		ldaa #$58
+		staa $00,x
+		inx
+		staa $00,x
+		inx
+		ldaa #$3a
+		staa $00,x
+		inx
+		ldaa #$58
+		staa $00,x
+		inx
+		staa $00,x
+		inx
+
+		jmp st
+;Validacion;
+val		wai
+		ldaa $ffff
+		cmpa #$30
+		bmi val
+		cmpa max
+		bpl val
+		rts
+;fin subrutina;
+
+st		ldx #$fb00
 		ldaa #$33
+		staa max
+		jsr val
+		staa $00,x
+		inx
+		ldaa #$34
+		staa max
+		jsr val
+		staa $00,x
+		inx
+		inx
+		ldaa #$36
+		staa max
+		jsr val
 		staa $00,x
 		inx
 		ldaa #$3a
+		staa max
+		jsr val
 		staa $00,x
 		inx
-		ldaa #$35
-		staa $00,x
 		inx
-		ldaa #$39
+		ldaa #$36
+		staa max
+		jsr val
 		staa $00,x
 		inx
 		ldaa #$3a
+		staa max
+		jsr val
 		staa $00,x
-		inx
-		ldaa #$30
-		staa $00,x
-		inx
-		staa $00,x
-		inx
+		jmp loop
+;fin seteo;
 
 ret1	ldaa #$16
 ret2	ldaa #$14
